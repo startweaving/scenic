@@ -5,8 +5,8 @@ module Scenic
       #
       # @api private
       class Indexes
-        def initialize(connection:)
-          @connection = connection
+        def initialize(args = {})
+          @connection = args[:connection]
         end
 
         # Indexes on the provided object.
