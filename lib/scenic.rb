@@ -17,9 +17,9 @@ module Scenic
   # Enables scenic migration methods, migration reversability, and `schema.rb`
   # dumping.
   def self.load
-    ActiveRecord::ConnectionAdapters::AbstractAdapter.include Scenic::Statements
-    ActiveRecord::Migration::CommandRecorder.include Scenic::CommandRecorder
-    ActiveRecord::SchemaDumper.prepend Scenic::SchemaDumper
+    ActiveRecord::ConnectionAdapters::AbstractAdapter.send(:include, Scenic::Statements)
+    ActiveRecord::Migration::CommandRecorder.send(:include, Scenic::CommandRecorder)
+    ActiveRecord::SchemaDumper.send(:prepend, Scenic::SchemaDumper)
   end
 
   # The current database adapter used by Scenic.

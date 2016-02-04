@@ -27,10 +27,10 @@ module Scenic
     # @param object_name [String] The name of the object that has the index
     # @param index_name [String] The name of the index
     # @param definition [String] The SQL statements that defined the index
-    def initialize(object_name:, index_name:, definition:)
-      @object_name = object_name
-      @index_name = index_name
-      @definition = definition
+    def initialize(args = {})
+      @object_name = args[:object_name]
+      @index_name = args[:index_name]
+      @definition = args[:definition]
     end
   end
 end
